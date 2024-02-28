@@ -5,14 +5,18 @@
         <title>Button Counter</title>
     </head>
     <body>
-<span id="button"><button onclick='myFunction()'>0</button></span>
+<span id="button"><button onclick='click()'>Clicked 0 times</button></span>
 
     </body>
     <script>
         i = 1;
-        function myFunction() {
-            
-            button = "<button onclick='myFunction()'>"+i+"</button>"
+        var button
+        function click() {
+            if (i = 1) {
+                button = "<button onclick='click()'>Clicked "+i+" time</button>"
+            }else{
+                button = "<button onclick='click()'>Clicked "+i+" times</button>"
+            }
             
         i++
         document.getElementById('button').innerHTML = button;
