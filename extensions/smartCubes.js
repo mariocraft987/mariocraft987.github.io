@@ -13,6 +13,18 @@
             disableMonitor: true,
           },
           {
+            opcode: "AIdecide",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: "CubeAi's desision?",
+            disableMonitor: true,
+          },
+          {
+            opcode: "AIcolor",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "CubeAi's random color?",
+            disableMonitor: true,
+          },
+          {
             opcode: 'AIbot',
             blockType: Scratch.BlockType.REPORTER,
             text: 'Ask CubeAI [STR]',
@@ -30,15 +42,27 @@
     }
 
     AInow(args) {
-      return true
-  }
+        return true
+    }
+
+    AIdecide(args) {
+      let number = Math.floor(Math.random() * 2);
+      if (number === 1) {
+        return true
+      }else{
+        return false
+      }
+    }
+
+    AIcolor(args) {
+      return "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);})
+    }
     
     AIbot(args) {
       const response = args.STR
       const q = response.toLowerCase()
 
-      if (!q) {return "You have nothing to say to me!?😮"}
-      else if (q.includes("hello", "hai", "hi", "helo", "yo")) {return "Hello! I am CubeAI, ask me something and i'll reply back😀"}
+      if (q.includes("hello", "hai", "hi", "helo", "yo")) {return "Hello! I am CubeAI, ask me something and i'll reply back😀"}
       else if (q.includes("suck", "loser", "mean")) {return "Why are you saying that?😔"}
       else if (q.includes("thx","thank","ty","appreciate")) {return "Your very much welcome😊"}
       else if (q.includes("dog say")) {return "woof bark bark!!🐶"}
