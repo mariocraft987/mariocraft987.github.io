@@ -1,6 +1,6 @@
 /*
 @Under MIT LICENSE (C)
-@Version 1.5
+@Version 1.6
 @Created by Mariocraft987
 */
 
@@ -66,7 +66,7 @@
           {
             opcode: 'amExist',
             blockType: Scratch.BlockType.BOOLEAN,
-            text: 'Do I exist?',
+            text: 'True?',
             disableMonitor: true,
           },
           {
@@ -102,6 +102,12 @@
                 defaultValue: "mariocraft987"
               },
             }
+          },
+          {
+            opcode: 'errorThrow',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'Throw an Error',
+            disableMonitor: true,
           },
           {
             opcode: 'getDate',
@@ -156,9 +162,11 @@
     }
 
     amExist(args) {
-      return true
+      return "Imposter Reporter dressed as a Boolean!!"
     }
-
+    errorThrow(args) {
+      throw new Error("I'm an Error!");
+    }
     getDate(args) {
       let date = Date()
       return date
