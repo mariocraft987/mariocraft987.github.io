@@ -1,3 +1,9 @@
+/*
+@Under MIT LICENSE (C)
+@Version 0.5.0
+@Created by Mariocraft987 <https://scratch.mit.edu/users/mariocraft987>
+*/
+
 (function (Scratch) {
   "use strict";
   class SmartCubes {
@@ -7,6 +13,12 @@
         name: 'Smart Cubes',
         blocks: [
           {
+            opcode: "runProject",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "Wave green Flag",
+            disableMonitor: true,
+          },
+          {
             opcode: "comment",
             blockType: Scratch.BlockType.COMMAND,
             text: "//[micro]",
@@ -14,7 +26,7 @@
             arguments: {
               micro: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "true"
+                defaultValue: "Comment"
               }
             }
           },
@@ -48,6 +60,9 @@
       };
     }
 
+    runProject(args) {
+      Scratch.vm.runtime.greenFlag();
+    }
     comment(args) {
         // Comment 
         // args.micro
