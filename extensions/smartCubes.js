@@ -36,6 +36,43 @@
             text: "/*",
             disableMonitor: true,
           },
+          { blockType: Scratch.BlockType.LABEL, text: "Array Blocks" },
+          {
+            opcode: "addArray",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "Add [STR] to Array",
+            disableMonitor: true,
+            arguments: {
+              STR: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "Apple"
+              }
+            }
+          },
+          {
+            opcode: "removeArray",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "Remove [STR] from Array",
+            disableMonitor: true,
+            arguments: {
+              STR: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "Banana"
+              }
+            }
+          },
+          {
+            opcode: "clearArray",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "Clear Array",
+            disableMonitor: true,
+          },
+          {
+            opcode: "array",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "Return Array",
+            disableMonitor: true,
+          },
           { blockType: Scratch.BlockType.LABEL, text: "AI Blocks" },
           {
             opcode: "AInow",
@@ -55,11 +92,12 @@
             text: "Random color hex",
             disableMonitor: true,
           },
+          { blockType: Scratch.BlockType.LABEL, text: "Danger Zone" },
             
         ],
       };
     }
-
+    
     runProject(args) {
       Scratch.vm.runtime.greenFlag();
     }
@@ -70,6 +108,25 @@
     longComment(args) {
         /* Long Comment 
         args.micro */
+    }
+    clearArray(args) {
+      array = []
+    }
+
+    removeArray(args) {
+      array.remove(args.STR);
+    }
+    
+    addArray(args) {
+      array.push(args.STR);
+    }
+    
+    array(args) {
+      if (!array) {
+        return "[]"
+      }else{
+        return list
+      }
     }
     
     AInow(args) {
