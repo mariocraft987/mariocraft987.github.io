@@ -4,8 +4,9 @@
 @Created by Mariocraft987 <https://scratch.mit.edu/users/mariocraft987>
 */
 
-(function (Scratch) {
-  "use strict";
+(async function (Scratch) {
+  const array = [];
+  
   class SmartCubes {
     getInfo() {
       return {
@@ -50,16 +51,22 @@
             }
           },
           {
-            opcode: "removeArray",
+            opcode: "removeFromArray",
             blockType: Scratch.BlockType.COMMAND,
             text: "Remove [STR] from Array",
             disableMonitor: true,
             arguments: {
               STR: {
-                type: Scratch.ArgumentType.STRING,
-                defaultValue: "Banana"
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "0"
               }
             }
+          },
+          {
+            opcode: "removeArray",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "Remove the last item from Array",
+            disableMonitor: true,
           },
           {
             opcode: "clearArray",
@@ -93,6 +100,34 @@
             disableMonitor: true,
           },
           { blockType: Scratch.BlockType.LABEL, text: "Danger Zone" },
+          {
+            opcode: "localSet",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "Localstorage: set [STR] to [value]",
+            disableMonitor: true,
+            arguments: {
+              STR: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "name"
+              },
+              value: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "Ted"
+              }
+            }
+          },
+          {
+            opcode: "localGet",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "Localstorage: get [STR]",
+            disableMonitor: true,
+            arguments: {
+              STR: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "name"
+              }
+            }
+          },
             
         ],
       };
@@ -110,11 +145,18 @@
         args.micro */
     }
     clearArray(args) {
-      array = []
+      while (array.length > 0) {
+        array.pop();
+      }
     }
 
     removeArray(args) {
-      array.remove(args.STR);
+      array.pop();
+    }
+
+    removeFromArray(args) {
+        let value = args.STR
+        array.splice(value, value);
     }
     
     addArray(args) {
@@ -122,11 +164,7 @@
     }
     
     array(args) {
-      if (!array) {
-        return "[]"
-      }else{
-        return list
-      }
+        return array
     }
     
     AInow(args) {
@@ -145,7 +183,21 @@
     AIcolor(args) {
       return "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);})
     }
+    
+    localSet(args) {
+      let string = args.STR
+      let value = args.value
+      localStorage.setItem(string, value)
+    }
+    localGet(args) {
+      let value = localStorage.getItem(args.STR);
+      if (!value) {
+        return ""
+      }else{
+        return value
+      }
+    }
+    
   }
-  
   Scratch.extensions.register(new SmartCubes())
 })(Scratch);
