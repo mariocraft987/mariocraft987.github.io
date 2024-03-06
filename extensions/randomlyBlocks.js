@@ -1,6 +1,6 @@
 /*
 @Under MIT LICENSE (C)
-@Version 1.6
+@Version 1.7
 @Created by Mariocraft987
 */
 
@@ -104,12 +104,6 @@
             }
           },
           {
-            opcode: 'errorThrow',
-            blockType: Scratch.BlockType.REPORTER,
-            text: 'Throw an Error',
-            disableMonitor: true,
-          },
-          {
             opcode: 'getDate',
             blockType: Scratch.BlockType.REPORTER,
             text: 'get Date',
@@ -139,8 +133,8 @@
     }
     alertname(args) {
       alert(args.STR)
-    }
-
+    }    
+      // Old Block Test
     YNalert(args) {
       return("hello!")
     }
@@ -156,17 +150,15 @@
     consoleError(args) {
       window.console.error(args.STR)
     }
-
+    
+    amExist(args) {
+      return "Imposter Reporter as a Boolean!!"
+    }
+    
     notExist(args) {
       return false
     }
-
-    amExist(args) {
-      return "Imposter Reporter dressed as a Boolean!!"
-    }
-    errorThrow(args) {
-      throw new Error("I'm an Error!");
-    }
+    
     getDate(args) {
       let date = Date()
       return date
@@ -202,12 +194,10 @@
       }
     }
     
-        currentHolliday(args) {
-
+    currentHolliday(args) {
         let date = new Date();
         let month = date.getMonth()
         let day = date.getDate()
-        
             if (month == 0) {
                 if (day == 1) {return "new year"}
                 if (day == 15) {return "martin luther king"}
@@ -250,7 +240,6 @@
             }
             return "No Importent Hollidays Today!"
         }
-    
   }
   
   Scratch.extensions.register(new RandomlyBlocks())
