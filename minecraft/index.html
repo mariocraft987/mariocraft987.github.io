@@ -53,8 +53,7 @@
   .then(() => {
       console.log(obj)
       if (obj.live == true) {
-          document.getElementById("livebox").innerHTML =+ "<br/>🔴Playing Right now!<br/>";
-          document.getElementById("livebox").innerHTML =+ "On sm" + obj.sm;
+          document.getElementById("livebox").innerHTML = "<br/>🔴Playing Right now!<br/>On sm" + obj.sm;
       }
    });
         
