@@ -52,11 +52,9 @@
     obj = data;})
   .then(() => {
       console.log(obj)
-      let isLive = obj.live
-      let sm = obj.sm
-      if (isLive == true) {
-          document.getElementById("livebox").innerHTML = "🔴Playing Right now!<br/>";
-          document.getElementById("livebox").innerHTML =+ "On sm" + sm;
+      if (obj.live == true) {
+          document.getElementById("livebox").innerHTML =+ "<br/>🔴Playing Right now!<br/>";
+          document.getElementById("livebox").innerHTML =+ "On sm" + obj.sm;
       }
    });
         
