@@ -43,5 +43,13 @@
             Hi! This is my minecraft account. You may find me playing on Lifeboat Survival sometimes.
         </div>
     </div>
+    <script>
+                fetch('live.json')
+    .then(res => res.json()).then(data => {
+    obj = data;})
+  .then(() => {
+      console.log(obj)
+   });
+    </script>
 
 </body></html>
