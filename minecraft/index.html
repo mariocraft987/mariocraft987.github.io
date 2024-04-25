@@ -44,8 +44,8 @@
         <div class="description">
             Hi! This is my minecraft account. You may find me playing on Lifeboat Survival sometimes.
         </div>
-    </div>
-    <span id="livebox"></span>
+            <span id="livebox"></span>
+        </div>
     <script>
         fetch('live.json')
     .then(res => res.json()).then(data => {
@@ -55,10 +55,8 @@
       let isLive = obj.live
       let sm = obj.sm
       if (isLive == true) {
-          document.getElementById("livebox").innerHTML = " <div class="bio-container">";
-          document.getElementById("livebox").innerHTML =+ "🔴Playing Right now!<br/>";
+          document.getElementById("livebox").innerHTML = "🔴Playing Right now!<br/>";
           document.getElementById("livebox").innerHTML =+ "On sm"+obj.sm;
-          document.getElementById("livebox").innerHTML =+ "</div>";
       }
    });
         
