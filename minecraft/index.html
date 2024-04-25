@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mariocraft9876</title>
@@ -43,13 +45,23 @@
             Hi! This is my minecraft account. You may find me playing on Lifeboat Survival sometimes.
         </div>
     </div>
+    <span id="livebox"></span>
     <script>
-                fetch('live.json')
+        fetch('live.json')
     .then(res => res.json()).then(data => {
     obj = data;})
   .then(() => {
       console.log(obj)
+      let isLive = obj.live
+      let sm = obj.sm
+      if (isLive == true) {
+          document.getElementById("livebox").innerHTML = " <div class="bio-container">";
+          document.getElementById("livebox").innerHTML =+ "🔴Playing Right now!<br/>";
+          document.getElementById("livebox").innerHTML =+ "On sm"+obj.sm;
+          document.getElementById("livebox").innerHTML =+ "</div>";
+      }
    });
+        
     </script>
 
 </body></html>
