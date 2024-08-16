@@ -1,4 +1,4 @@
 const websiteLink = document.getElementById('m987weblink');
 
-websiteLink.addEventListener("mouseleave", () => websiteLink.src = "https://mariocraft987.github.io/static/idle.png");
-websiteLink.addEventListener("mouseover", () => websiteLink.src = "https://mariocraft987.github.io/static/hand.png");
+websiteLink.addEventListener("mousehover", () => document.getElementById('m987weblink').src = "https://mariocraft987.github.io/static/hand.png");
+websiteLink.addEventListener("mouseleave", () => document.getElementById('m987weblink').src = "https://mariocraft987.github.io/static/idle.png");
