@@ -70,4 +70,11 @@
         </div>
   </body>
   <script src="https://mariocraft987.github.io/static/js/websiteHover.js"></script>
+  <script>
+    function addMessage(username, pfp, msg, textcolor) {
+      document.getElementById('discordchatthingy').innerHTML += `<div><img style="border-radius: 50%; width: 40px; height: 40px;" src="${pfp}"><div style="color: ${textcolor}; translate: 48px -45px; font-family: 'gg sans Medium', sans-serif;">${username}</div></div>`
+    }
+
+    addMessage("memez", "https://mariocraft987.github.io/static/memez.png", "hello", "white")
+  </script>
 </html>
